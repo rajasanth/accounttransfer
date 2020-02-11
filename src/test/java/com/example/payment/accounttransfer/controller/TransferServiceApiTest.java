@@ -27,10 +27,7 @@ public class TransferServiceApiTest {
     @Test
     public void testTransferSuccess() throws Exception {
         Mockito.when(service.transferMoney("abc", "cde", 20.0f)).thenReturn("Success");
-        Transaction transaction = new Transaction();
-        transaction.setAmount(20.0f);
-        transaction.setDestinationAccountNumber("cde");
-        transaction.setSourceAccountNumber("abc");
+        Transaction transaction = new Transaction("abc", "cde", 20.0f);
         String content = new ObjectMapper().writeValueAsString(transaction);
         mvc.perform(MockMvcRequestBuilders.post("/transfer").contentType(MediaType.APPLICATION_JSON).content(content).accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk());
     }

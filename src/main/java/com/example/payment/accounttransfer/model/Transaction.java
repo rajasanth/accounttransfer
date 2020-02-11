@@ -5,6 +5,14 @@ public class Transaction {
     private String sourceAccountNumber;
     private String destinationAccountNumber;
 
+    public Transaction() {
+    }
+    public Transaction(String sourceAccountNumber, String destinationAccountNumber, Float amount) {
+        this.sourceAccountNumber = sourceAccountNumber;
+        this.destinationAccountNumber = destinationAccountNumber;
+        this.amount = amount;
+    }
+
     public Float getAmount() {
         return amount;
     }
